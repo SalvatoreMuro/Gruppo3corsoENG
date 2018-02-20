@@ -20,8 +20,6 @@ public class Product {
 	private Long id;
 	
 
-	private Auction auction;
-
 	@ManyToOne
 	@Column(name ="CATEGORY_FK")
 	
