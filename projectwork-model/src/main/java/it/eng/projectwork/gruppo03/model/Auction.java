@@ -146,6 +146,10 @@ public class Auction {
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
 	}
+	
+	public boolean isSuspend() {
+		return suspend;
+	}
  
 	
 }
