@@ -19,7 +19,7 @@ public class Product {
 	
 	@OneToOne(mappedBy="product")
 	private Auction auction;
-	
+		
 	private String Description;
 	
 	
