@@ -16,6 +16,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Version;
 
+import it.eng.projectwork.model.interfaces.PRICING;
+import it.eng.projectwork.model.interfaces.STATE;
+
 
 @Entity
 @Table (name="AUCTION")
@@ -153,8 +156,8 @@ public class Auction {
 	}
 	
 	public void addBid(Bid newBid) {
-		if(getSTATE().canIAddBid()) {
-			if(getPricing().canIAddBid(getBids(), newBid)) {
+		if(getSTATE().canAddBid()) {
+			if(getPricing().canIAddBid(getBid(), newBid)) {
 				newBid.setAuction(this);
 				bids.add(newBid);
 				
@@ -172,6 +175,6 @@ public class Auction {
 	}
 	
 	public PRICING getPricing() {
-		return this.pricing;
+		return this.getPricing();
 	}
 }
