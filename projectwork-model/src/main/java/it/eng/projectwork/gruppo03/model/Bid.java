@@ -30,8 +30,19 @@ public class Bid {
 	@Column(name="BIDDER_FK")
 	private User bidder;
 	
-	private double value;
+	private long Price;
 	
+	
+	public long getPrice() {
+		return Price;
+	}
+
+
+
+	public void setPrice(long price) {
+		Price = price;
+	}
+
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date time;
 	
@@ -39,10 +50,10 @@ public class Bid {
 	
 	
 
-	public Bid(Auction auction, User bidder, double value, Date time) {
+	public Bid(Auction auction, User bidder, long Price, Date time) {
 		this.auction = auction;
 		this.bidder = bidder;
-		this.value = value;
+		this.Price = Price;
 		this.time = time;
 	}
 
@@ -72,13 +83,6 @@ public class Bid {
 		this.bidder = bidder;
 	}
 
-	public double getValue() {
-		return value;
-	}
-
-	public void setValue(double value) {
-		this.value = value;
-	}
 
 	public Date getTime() {
 		return time;
