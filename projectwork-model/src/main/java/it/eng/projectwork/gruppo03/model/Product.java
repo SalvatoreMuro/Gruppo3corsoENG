@@ -15,7 +15,7 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator ="PRODUCT_ID_SEQ")
 	@SequenceGenerator(name="PRODUCT_ID_SEQ", sequenceName = "ID_SEQ",allocationSize = 1)
 	private Long id;
-	private String Descrizione;
+	private String Description;
 	
 	public Product() {}
 
@@ -28,11 +28,11 @@ public class Product {
 	}
 
 	public String getDescrizione() {
-		return Descrizione;
+		return Description;
 	}
 
 	public void setDescrizione(String descrizione) {
-		Descrizione = descrizione;
+		Description = descrizione;
 	}
 	
 	
