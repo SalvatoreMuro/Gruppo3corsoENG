@@ -45,11 +45,24 @@ public class Auction {
 	@Version
 	private Long version;
 	
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date lastbidDate;
+	
+	public Date getLastbidDate() {
+		return lastbidDate;
+	}
+
+	public void setLastbidDate(Date lastbidDate) {
+		this.lastbidDate = lastbidDate;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date startDate;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date endDate;
+	
+	private boolean suspend;
 	
 	public Long getId() {
 		return id;
