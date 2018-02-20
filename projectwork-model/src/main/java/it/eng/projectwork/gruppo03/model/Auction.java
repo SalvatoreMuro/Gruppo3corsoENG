@@ -151,6 +151,27 @@ public class Auction {
 	public boolean isSuspend() {
 		return suspend;
 	}
- 
 	
+	public void addBid(Bid newBid) {
+		if(getSTATE().canIAddBid()) {
+			if(getPricing().canIAddBid(getBids(), newBid)) {
+				newBid.setAuction(this);
+				bids.add(newBid);
+				
+			}else {
+				throw new RuntimeException("Price is not valid"); //Temporanea, da rendere Exception personalizzata
+			}
+		}else {
+			throw new RuntimeException("State is not valid"); //Temporanea, da rendere Exception personalizzata
+		}
+		
+	}
+ 
+	public STATE getSTATE() {
+		return STATE.eval(this);
+	}
+	
+	public PRICING getPricing() {
+		return this.pricing;
+	}
 }
