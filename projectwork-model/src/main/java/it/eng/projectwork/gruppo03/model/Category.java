@@ -2,7 +2,6 @@ package it.eng.projectwork.gruppo03.model;
 
 import java.util.List;
 
-import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -11,9 +10,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(name="CATEGORY")
-@Embeddable
+
 public class Category {
 
 	@Id

@@ -1,7 +1,6 @@
 package it.eng.projectwork.gruppo03.model;
 
 import javax.persistence.Column;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,10 +21,10 @@ public class Product {
 	
 	@OneToOne(mappedBy="product")
 	private Auction auction;
-	
+
 	@ManyToOne
 	@Column(name ="CATEGORY_FK")
-	@Embedded
+	
 	private Category category;
 	
 	private String Description;
