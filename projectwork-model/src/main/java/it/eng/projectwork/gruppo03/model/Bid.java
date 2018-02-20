@@ -30,16 +30,16 @@ public class Bid {
 	@Column(name="BIDDER_FK")
 	private User bidder;
 	
-	private long Price;
+	private double Price;
 	
 	
-	public long getPrice() {
+	public double getPrice() {
 		return Price;
 	}
 
 
 
-	public void setPrice(long price) {
+	public void setPrice(double price) {
 		Price = price;
 	}
 
@@ -50,7 +50,7 @@ public class Bid {
 	
 	
 
-	public Bid(Auction auction, User bidder, long Price, Date time) {
+	public Bid(Auction auction, User bidder, double Price, Date time) {
 		this.auction = auction;
 		this.bidder = bidder;
 		this.Price = Price;

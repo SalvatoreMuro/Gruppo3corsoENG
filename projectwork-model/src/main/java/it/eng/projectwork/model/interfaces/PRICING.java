@@ -4,7 +4,7 @@ import antlr.collections.List;
 import it.eng.projectwork.gruppo03.model.Auction;
 import it.eng.projectwork.gruppo03.model.Bid;
 
-public enum PRIECING {
+public enum PRICING {
 	UPWARDS{
 		@Override
 		public boolean canAdd(Bid b, Bid newBid) {
@@ -12,7 +12,7 @@ public enum PRIECING {
 		}
 		
 		@Override
-		public Bid currentBid(List<Bid> bids) {
+		public Bid currentBid(List bids) {
 			return bids.stream().max((a,b)->{return a.getPrice().compareTo(b.getPrice());}).get();
 		}
 		
