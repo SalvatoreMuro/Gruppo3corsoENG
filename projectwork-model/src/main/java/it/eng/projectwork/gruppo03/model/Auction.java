@@ -85,7 +85,7 @@ public class Auction {
 
 	public Auction() {}
 	
-	public Auction(String title, Supplier supplier,Product product,Date startDate,Date endDate) {
+	public Auction(String title, String description, Supplier supplier,Product product,Date startDate,Date endDate) {
 		this.title = title;
 		this.description = description;
 		this.supplier = supplier;
