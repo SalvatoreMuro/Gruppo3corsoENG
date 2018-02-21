@@ -29,6 +29,11 @@
            <artifactId>h2</artifactId>
            <scope>test</scope>
        </dependency>
+       <dependency>
+       	<groupId>it.eng.projectwork.gruppo3</groupId>
+       	<artifactId>projectwork-eis-interface</artifactId>
+       	<version>0.0.1-SNAPSHOT</version>
+       </dependency>
   </dependencies>
   <build>
   	<plugins>
@@ -46,6 +51,6 @@
 		<!-- JBoss AS plugin to deploy jar -->
   	</plugins>
   </build>
-  <version>7.0</version>
+
   
 </project>
