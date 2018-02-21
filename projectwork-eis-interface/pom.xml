@@ -6,4 +6,12 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>projectwork-eis-interface</artifactId>
+    <dependencies>
+  <dependency>
+		<groupId>javax</groupId>
+		<artifactId>javaee-api</artifactId>
+		<type>jar</type>
+		<scope>provided</scope>
+	</dependency>
+  </dependencies>
 </project>
