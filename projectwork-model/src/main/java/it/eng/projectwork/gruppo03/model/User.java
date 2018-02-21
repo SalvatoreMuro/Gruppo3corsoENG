@@ -21,6 +21,13 @@ public class User {
 	
 	public User() {}
 
+	public User(String username, String nome, String cognome, String email) {
+		this.username = username;
+		this.nome = nome;
+		this.cognome = cognome;
+		this.email = email;
+	}
+
 	public String getUsername() {
 		return username;
 	}

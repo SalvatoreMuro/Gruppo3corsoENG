@@ -16,6 +16,12 @@ public class Supplier extends User {
 	
 	public Supplier() {}
 	
+	public Supplier(String username, String nome, String cognome, String email, String nomeAzienda, String piva) {
+		super(username, nome, cognome, email);
+		this.nomeAzienda = nomeAzienda;
+		this.piva = piva;
+	}
+
 	public String getNomeAzienda() {
 		return nomeAzienda;
 	}
