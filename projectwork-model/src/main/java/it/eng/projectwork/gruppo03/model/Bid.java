@@ -2,6 +2,7 @@ package it.eng.projectwork.gruppo03.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,9 +21,11 @@ public class Bid {
 	private long oid;
 	
 	@ManyToOne
+	@Column(name="AUCTION_FK")
 	private Auction auction;
 	
 	@ManyToOne
+	@Column(name="BIDDER_FK")
 	private User bidder;
 	
 	private double value;
@@ -71,6 +74,5 @@ public class Bid {
 	public void setTime(Date time) {
 		this.time = time;
 	}
-	
 	
 }
