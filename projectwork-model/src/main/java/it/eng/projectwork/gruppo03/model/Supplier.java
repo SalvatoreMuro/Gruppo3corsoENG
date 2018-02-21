@@ -14,6 +14,8 @@ public class Supplier extends User {
 	@Column(name="P_IVA", unique=true)
 	private String piva;
 	
+	public Supplier() {}
+	
 	public String getNomeAzienda() {
 		return nomeAzienda;
 	}
