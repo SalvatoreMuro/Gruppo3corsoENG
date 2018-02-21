@@ -66,7 +66,7 @@ public class Bid {
 	public void setOid(long oid) {
 		this.oid = oid;
 	}
-
+	//commento
 	public Auction getAuction() {
 		return auction;
 	}
