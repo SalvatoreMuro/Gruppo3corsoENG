@@ -1,5 +1,6 @@
 package it.eng.projectwork.gruppo03.model;
 
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -10,8 +11,13 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import javax.persistence.Version;
 
 @Entity
+@Table (name="AUCTION")
 public class Auction {
 	
 	@Id
@@ -20,15 +26,30 @@ public class Auction {
 	private Long id;
 	
 	@OneToOne
-	@Column(name="PRODUCT_FK")
+	@Column(name="PRODUCT_FK", nullable=false)
 	private Product product;
 	
 	@ManyToOne
-	@Column(name="SUPPLIER_FK")
+	@Column(name="SUPPLIER_FK", nullable=false)
 	private Supplier supplier;
 	
 	@OneToMany(mappedBy="auction")
 	private List<Bid> bids;
+	
+	@Column(nullable=false)
+	private String title;
+	
+	@Column
+	private String description;
+	
+	@Version
+	private Long version;
+	
+	@Temporal(TemporalType.DATE)
+	private Date startDate;
+	
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date endDate;
 	
 	public Long getId() {
 		return id;
@@ -61,6 +82,57 @@ public class Auction {
 	public void setBid(List<Bid> bid) {
 		this.bids = bid;
 	}
-	
 
+	public Auction() {}
+	
+	public Auction(String title, Supplier supplier,Product product,Date startDate,Date endDate) {
+		this.title = title;
+		this.description = description;
+		this.supplier = supplier;
+		this.product = product;
+		this.startDate = startDate;
+		this.endDate = endDate;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Long getVersion() {
+		return version;
+	}
+
+	public void setVersion(Long version) {
+		this.version = version;
+	}
+
+	public Date getStartDate() {
+		return startDate;
+	}
+
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
+	}
+
+	public Date getEndDate() {
+		return endDate;
+	}
+
+	public void setEndDate(Date endDate) {
+		this.endDate = endDate;
+	}
+ 
+	
 }
