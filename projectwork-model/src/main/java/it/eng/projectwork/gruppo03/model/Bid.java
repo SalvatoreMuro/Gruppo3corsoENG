@@ -18,7 +18,7 @@ public class Bid {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="BID_ID_SEQ")
 	@SequenceGenerator(name="BID_ID_SEQ", sequenceName="ID_SEQ", allocationSize=10)
-	private long oid;
+	private Long oid;
 	
 	@ManyToOne
 	@Column(name="AUCTION_FK")
