@@ -1,5 +1,7 @@
 package it.eng.projectwork.gruppo03.model;
 
+import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
@@ -15,9 +17,10 @@ public class Supplier extends User {
 	private String piva;
 	
 	public Supplier() {}
-	
-	public Supplier(String username, String nome, String cognome, String email, String nomeAzienda, String piva) {
-		super(username, nome, cognome, email);
+
+	public Supplier(String username, String nome, String cognome, String email, Date birthDate, Address address,
+			String nomeAzienda, String piva) {
+		super(username, nome, cognome, email, birthDate, address);
 		this.nomeAzienda = nomeAzienda;
 		this.piva = piva;
 	}

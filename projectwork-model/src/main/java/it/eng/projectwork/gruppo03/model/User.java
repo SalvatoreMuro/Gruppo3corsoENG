@@ -1,11 +1,16 @@
 package it.eng.projectwork.gruppo03.model;
 
+import java.util.Date;
+
 import javax.persistence.DiscriminatorColumn;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 @Inheritance(strategy=InheritanceType.JOINED)
@@ -19,13 +24,21 @@ public class User {
 	private String cognome;
 	private String email;
 	
+	@Temporal(TemporalType.DATE)
+	private Date birthDate;
+	
+	@Embedded
+	private Address address;
+	
 	public User() {}
 
-	public User(String username, String nome, String cognome, String email) {
+	public User(String username, String nome, String cognome, String email, Date birthDate, Address address) {
 		this.username = username;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.email = email;
+		this.birthDate = birthDate;
+		this.address = address;
 	}
 
 	public String getUsername() {
@@ -58,6 +71,22 @@ public class User {
 
 	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public Date getBirthDate() {
+		return birthDate;
+	}
+
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+
+	public Address getAddress() {
+		return address;
+	}
+
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 	
 	
