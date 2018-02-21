@@ -12,7 +12,7 @@
   	<dependency>
   		<groupId>it.eng.projectwork.gruppo3</groupId>
   		<artifactId>projectwork-eis</artifactId>
-  		<version>7.0</version>
+  		<version>${project.version}</version>
   		<type>ejb</type>
   	</dependency>
   </dependencies>

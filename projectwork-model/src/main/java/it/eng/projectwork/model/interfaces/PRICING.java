@@ -25,7 +25,7 @@ public enum PRICING {
 		
 		@Override
 		public Bid currentBid(List<Bid> bids) {
-			return bids.stream().min((a,b)->{return a.getPrice()-b.getPrice();}).get();
+			return bids.stream().min((a,b)->{return (int)(a.getPrice()- b.getPrice());}).get();
 		}
 	};
 	
