@@ -1,9 +1,16 @@
 package it.eng.projectwork.gruppo03.model;
 
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.Table;
 
 @Entity
+@Inheritance(strategy=InheritanceType.JOINED)
+@DiscriminatorColumn(name="USER_TYPE")
+@Table(name="USERS")
 public class User {
 
 	@Id
