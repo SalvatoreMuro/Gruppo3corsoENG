@@ -19,7 +19,7 @@ public class Category {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="CATEGORY_ID_SEQ")
 	@SequenceGenerator(name="CATEGORY_ID_SEQ", sequenceName="CATEGORY_ID_SEQ", allocationSize=1)
-	private Long codice;
+	private Long id;
 	
 	private String descrizione;
 	
@@ -28,12 +28,17 @@ public class Category {
 	
 	public Category() {}
 
-	public Long getCodice() {
-		return codice;
+	public Category(String descrizione, List<Product> products) {
+		this.descrizione = descrizione;
+		this.products = products;
 	}
 
-	public void setCodice(Long codice) {
-		this.codice = codice;
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getDescrizione() {
@@ -43,4 +48,5 @@ public class Category {
 	public void setDescrizione(String descrizione) {
 		this.descrizione = descrizione;
 	}
+	
 }
