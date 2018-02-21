@@ -10,9 +10,9 @@ import javax.persistence.Table;
 @Table(name="SUPPLIER")
 public class Supplier extends User {
 	
-	public String nomeAzienda;
+	private String nomeAzienda;
 	@Column(name="P_IVA", unique=true)
-	public String piva;
+	private String piva;
 	
 	public String getNomeAzienda() {
 		return nomeAzienda;
