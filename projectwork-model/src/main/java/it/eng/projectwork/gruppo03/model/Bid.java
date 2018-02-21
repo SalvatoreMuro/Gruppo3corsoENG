@@ -36,6 +36,17 @@ public class Bid {
 	private Date time;
 	
 	public Bid() {}
+	
+	
+
+	public Bid(Auction auction, User bidder, double value, Date time) {
+		this.auction = auction;
+		this.bidder = bidder;
+		this.value = value;
+		this.time = time;
+	}
+
+
 
 	public long getOid() {
 		return oid;

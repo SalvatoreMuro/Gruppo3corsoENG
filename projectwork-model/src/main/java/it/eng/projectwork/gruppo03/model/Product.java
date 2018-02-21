@@ -34,15 +34,18 @@ public class Product {
 	@OneToMany(fetch=FetchType.LAZY, mappedBy="product", cascade=CascadeType.ALL)
 	private List<Image> images;
 	
-	public List<Image> getImages() {
-		return images;
+	public Product() {}
+
+	public Product(Category category, String description) {
+		this.category = category;
+		this.description = description;
 	}
 
-	public void setImages(List<Image> images) {
+	public Product(Category category, String description, List<Image> images) {
+		this.category = category;
+		this.description = description;
 		this.images = images;
 	}
-
-	public Product() {}
 
 	public Long getId() {
 		return id;
@@ -56,8 +59,17 @@ public class Product {
 		return description;
 	}
 
-	public void setDescrizione(String description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
+	
+	public List<Image> getImages() {
+		return images;
+	}
+
+	public void setImages(List<Image> images) {
+		this.images = images;
+	}
+
 
 }
