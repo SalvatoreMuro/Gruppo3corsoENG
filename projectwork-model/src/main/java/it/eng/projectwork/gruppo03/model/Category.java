@@ -21,15 +21,15 @@ public class Category {
 	@SequenceGenerator(name="CATEGORY_ID_SEQ", sequenceName="CATEGORY_ID_SEQ", allocationSize=1)
 	private Long id;
 	
-	private String descrizione;
+	private String description;
 	
 	@OneToMany(mappedBy="category")
 	private List<Product> products;
 	
 	public Category() {}
 
-	public Category(String descrizione, List<Product> products) {
-		this.descrizione = descrizione;
+	public Category(String description, List<Product> products) {
+		this.description = description;
 		this.products = products;
 	}
 
@@ -41,12 +41,12 @@ public class Category {
 		this.id = id;
 	}
 
-	public String getDescrizione() {
-		return descrizione;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDescrizione(String descrizione) {
-		this.descrizione = descrizione;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 }
