@@ -1,12 +1,13 @@
 package it.eng.projectwork.gruppo03.model;
 
-import javax.persistence.Column;
+import java.util.List;
+
 import javax.persistence.Embeddable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -22,9 +23,8 @@ public class Category {
 	
 	private String descrizione;
 	
-	@ManyToOne
-	@Column(name="PRODUCT_FK")
-	private Product product;
+	@OneToMany(mappedBy="categoria")
+	private List<Product> products;
 	
 	public Category() {}
 
