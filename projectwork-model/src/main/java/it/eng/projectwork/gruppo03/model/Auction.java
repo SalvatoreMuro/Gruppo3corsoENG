@@ -2,6 +2,8 @@ package it.eng.projectwork.gruppo03.model;
 
 import java.util.Date;
 import java.util.List;
+
+import javax.management.RuntimeErrorException;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -45,24 +47,11 @@ public class Auction {
 	@Version
 	private Long version;
 	
-	@Temporal(TemporalType.TIMESTAMP)
-	private Date lastbidDate;
-	
-	public Date getLastbidDate() {
-		return lastbidDate;
-	}
-
-	public void setLastbidDate(Date lastbidDate) {
-		this.lastbidDate = lastbidDate;
-	}
-
-	@Temporal(TemporalType.TIMESTAMP)
+	@Temporal(TemporalType.DATE)
 	private Date startDate;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date endDate;
-	
-	private boolean suspend;
 	
 	public Long getId() {
 		return id;
@@ -88,12 +77,12 @@ public class Auction {
 		this.supplier = supplier;
 	}
 	
-	public List<Bid> getBid() {
+	public List<Bid> getBids() {
 		return bids;
 	}
 	
-	public void setBid(List<Bid> bid) {
-		this.bids = bid;
+	public void setBids(List<Bid> bids) {
+		this.bids = bids;
 	}
 
 	public Auction() {}
@@ -147,9 +136,26 @@ public class Auction {
 		this.endDate = endDate;
 	}
 	
-	public boolean isSuspend() {
-		return suspend;
+	public void addBid(Bid newBid) {
+		if(getSTATE().canIAddBid()) {
+			if(getPricing().canIAddBid(getBids(), newBid)) {
+				newBid.setAuction(this);
+				bids.add(newBid);
+				
+			}else {
+				throw new RuntimeException("Price is not valid"); //Temporanea, da rendere Exception personalizzata
+			}
+		}else {
+			throw new RuntimeException("State is not valid"); //Temporanea, da rendere Exception personalizzata
+		}
+		
 	}
  
+	public STATE getSTATE() {
+		return STATE.eval(this);
+	}
 	
+	public PRICING getPricing() {
+		return this.pricing;
+	}
 }
