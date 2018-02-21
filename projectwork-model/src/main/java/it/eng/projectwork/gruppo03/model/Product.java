@@ -19,7 +19,7 @@ public class Product {
 	@SequenceGenerator(name="PRODUCT_ID_SEQ", sequenceName = "ID_SEQ",allocationSize = 1)
 	private Long id;
 	
-	@OneToOne(mappedBy="product")
+
 	private Auction auction;
 
 	@ManyToOne
