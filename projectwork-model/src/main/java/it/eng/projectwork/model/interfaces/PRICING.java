@@ -8,7 +8,7 @@ public enum PRICING {
 	UPWARDS{
 		@Override
 		public boolean canAdd(Bid b, Bid newBid) {
-			return newBid.getPrice().compareTo(b.getPrice())>0;
+			return newBid.getPrice()>b.getPrice();
 		}
 		
 		@Override
@@ -19,7 +19,7 @@ public enum PRICING {
 	},DOWNWARDS{
 		@Override
 		public boolean canAdd(Bid b, Bid newBid) {
-			return newBid.getPrice().compareTo(b.getPrice())>0;
+			return newBid.getPrice()<b.getPrice();
 		}
 		
 		@Override

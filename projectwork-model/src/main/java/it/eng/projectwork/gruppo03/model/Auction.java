@@ -1,9 +1,12 @@
 package it.eng.projectwork.gruppo03.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -38,7 +41,7 @@ public class Auction {
 	private Supplier supplier;
 	
 	@OneToMany(mappedBy="auction")
-	private List<Bid> bids;
+	private List<Bid> bids=new ArrayList<Bid>();
 	
 	@Column(nullable=false)
 	private String title;
@@ -51,20 +54,15 @@ public class Auction {
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date lastbidDate;
-	
-	public Date getLastbidDate() {
-		return lastbidDate;
-	}
-
-	public void setLastbidDate(Date lastbidDate) {
-		this.lastbidDate = lastbidDate;
-	}
 
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date startDate;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date endDate;
+	
+	@Enumerated(EnumType.STRING)
+	private PRICING pricing;
 	
 	private boolean suspend;
 	
@@ -135,6 +133,13 @@ public class Auction {
 		this.version = version;
 	}
 
+	public Date getLastbidDate() {
+		return lastbidDate;
+	}
+
+	public void setLastbidDate(Date lastbidDate) {
+		this.lastbidDate = lastbidDate;
+	}
 	public Date getStartDate() {
 		return startDate;
 	}
@@ -160,7 +165,7 @@ public class Auction {
 			if(getPricing().canIAddBid(getBid(), newBid)) {
 				newBid.setAuction(this);
 				bids.add(newBid);
-				
+				this.lastbidDate=newBid.getTime();
 			}else {
 				throw new RuntimeException("Price is not valid"); //Temporanea, da rendere Exception personalizzata
 			}
