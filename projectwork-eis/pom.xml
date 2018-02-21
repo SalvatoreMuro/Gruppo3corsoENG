@@ -6,4 +6,31 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>projectwork-eis</artifactId>
+  <packaging>ejb</packaging>
+  <dependencies>
+  <dependency>
+		<groupId>javax</groupId>
+		<artifactId>javaee-api</artifactId>
+		<type>jar</type>
+		<scope>provided</scope>
+	</dependency>
+  </dependencies>
+  <build>
+  	<plugins>
+  		<plugin>
+			<!-- must include ejb-plugin to change the EJB version from 2.1 to 3.0 -->
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-ejb-plugin</artifactId>
+			<version>2.3</version>
+			<configuration>
+				<ejbVersion>3.1</ejbVersion>
+				<source>1.8</source>
+				<target>1.8</target>
+			</configuration>
+		</plugin>
+		<!-- JBoss AS plugin to deploy jar -->
+  	</plugins>
+  </build>
+  <version>7.0</version>
+  
 </project>
