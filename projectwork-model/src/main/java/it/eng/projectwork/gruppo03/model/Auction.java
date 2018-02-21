@@ -2,8 +2,6 @@ package it.eng.projectwork.gruppo03.model;
 
 import java.util.Date;
 import java.util.List;
-
-import javax.management.RuntimeErrorException;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -48,11 +46,24 @@ public class Auction {
 	@Version
 	private Long version;
 	
-	@Temporal(TemporalType.DATE)
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date lastbidDate;
+	
+	public Date getLastbidDate() {
+		return lastbidDate;
+	}
+
+	public void setLastbidDate(Date lastbidDate) {
+		this.lastbidDate = lastbidDate;
+	}
+
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date startDate;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date endDate;
+	
+	private boolean suspend;
 	
 	public Long getId() {
 		return id;
@@ -78,12 +89,12 @@ public class Auction {
 		this.supplier = supplier;
 	}
 	
-	public List<Bid> getBids() {
+	public List<Bid> getBid() {
 		return bids;
 	}
 	
-	public void setBids(List<Bid> bids) {
-		this.bids = bids;
+	public void setBid(List<Bid> bid) {
+		this.bids = bid;
 	}
 
 	public Auction() {}
@@ -135,6 +146,10 @@ public class Auction {
 
 	public void setEndDate(Date endDate) {
 		this.endDate = endDate;
+	}
+	
+	public boolean isSuspend() {
+		return suspend;
 	}
 	
 	public void addBid(Bid newBid) {
