@@ -6,4 +6,59 @@
     <version>0.0.1-SNAPSHOT</version>
   </parent>
   <artifactId>projectwork-service</artifactId>
+  <packaging>ejb</packaging>
+  <dependencies>
+  <dependency>
+		<groupId>javax</groupId>
+		<artifactId>javaee-api</artifactId>
+		<type>jar</type>
+		<scope>provided</scope>
+	</dependency>
+	  	    <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+           <groupId>junit</groupId>
+           <artifactId>junit</artifactId>
+           <scope>test</scope>
+       </dependency>
+       <dependency>
+           <groupId>com.h2database</groupId>
+           <artifactId>h2</artifactId>
+           <scope>test</scope>
+       </dependency>
+       <dependency>
+       	<groupId>it.eng.projectwork.gruppo3</groupId>
+       	<artifactId>projectwork-eis-interface</artifactId>
+       	<version>0.0.1-SNAPSHOT</version>
+       </dependency>
+       <dependency>
+       	<groupId>it.eng.projectwork.gruppo3</groupId>
+       	<artifactId>projectwork-service-interface</artifactId>
+       	<version>0.0.1-SNAPSHOT</version>
+       </dependency>
+       <dependency>
+       	<groupId>it.eng.projectwork.gruppo3</groupId>
+       	<artifactId>projectwork-model</artifactId>
+       	<version>0.0.1-SNAPSHOT</version>
+       </dependency>
+  </dependencies>
+  <build>
+  	<plugins>
+  		<plugin>
+			<!-- must include ejb-plugin to change the EJB version from 2.1 to 3.0 -->
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-ejb-plugin</artifactId>
+			<version>2.3</version>
+			<configuration>
+				<ejbVersion>3.1</ejbVersion>
+				<source>1.8</source>
+				<target>1.8</target>
+			</configuration>
+		</plugin>
+		<!-- JBoss AS plugin to deploy jar -->
+  	</plugins>
+  </build>
 </project>
