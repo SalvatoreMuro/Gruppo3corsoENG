@@ -70,7 +70,7 @@ public class Bid {
 	public Auction getAuction() {
 		return auction;
 	}
-
+	/commento
 	public void setAuction(Auction auction) {
 		this.auction = auction;
 	}
