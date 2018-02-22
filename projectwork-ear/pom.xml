@@ -7,7 +7,7 @@
   </parent>
   <artifactId>projectwork-ear</artifactId>
   <packaging>ear</packaging>
-  
+  <!-- commento -->
   <dependencies>
   	<dependency>
   		<groupId>it.eng.projectwork.gruppo3</groupId>
