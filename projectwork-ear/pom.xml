@@ -8,14 +8,6 @@
   <artifactId>projectwork-ear</artifactId>
   <packaging>ear</packaging>
   <!-- commento -->
-  <dependencies>
-  	<dependency>
-  		<groupId>it.eng.projectwork.gruppo3</groupId>
-  		<artifactId>projectwork-eis</artifactId>
-  		<version>${project.version}</version>
-  		<type>ejb</type>
-  	</dependency>
-  </dependencies>
   <build>
 		<plugins>
 			<plugin>
@@ -65,4 +57,11 @@
 			</plugin>
 		</plugins>
 	</build>
+  <dependencies>
+  	<dependency>
+  		<groupId>it.eng.projectwork.gruppo3</groupId>
+  		<artifactId>projectwork-model</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>
